@@ -12,6 +12,4 @@ node('node') {
          sh 'mvn --version'
        }
 
-    }
-
 }
