@@ -9,7 +9,7 @@ node('node') {
     }
 
     stage('Test'){
-        mvn --version
+        sh 'mvn --version'
     }
 
 }
