@@ -2,14 +2,14 @@
 
 node('node') {
 
-        echo "hello world"
+    echo "hello world"
 
-       stage('Checkout'){
-          checkout scm
-       }
+    stage('Checkout'){
+        checkout scm
+    }
 
-       stage('Test'){
-         sh 'mvn --version'
-       }
+    stage('Test'){
+        mvn --version
+    }
 
 }
