@@ -1,7 +1,7 @@
 #!groovy
 
 node() {
-    currentBuild.result = "SUCCESS"
+    //currentBuild.result = 'SUCCESS'
     def mvnHome
 
     try {
@@ -33,8 +33,27 @@ node() {
         }
 
     } catch (err) {
-        currentBuild.result = "FAILURE"
+
+        //currentBuild.result = 'FAILURE'
         throw err
+
+    } finally {
+
+
+        def currentResult = currentBuild.result ?: 'SUCCESS'
+        echo "The result is ${currentResult}"
+
+        if (currentResult == 'UNSTABLE') {
+          echo 'This will run only if the run was marked as unstable'
+        }
+
+        def previousResult = currentBuild.previousBuild?.result
+        if (previousResult != null && previousResult != currentResult) {
+          echo 'This will run only if the state of the Pipeline has changed'
+          echo 'For example, if the Pipeline was previously failing but is now successful'
+        }
+
+        echo 'Finished'
     }
 
 }
