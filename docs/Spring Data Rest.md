@@ -1,0 +1,1 @@
+http://www.oracle.com/webfolder/technetwork/tutorials/obe/cloud/apaas/rest_spring_jpa/rest_spring_jpa.html
