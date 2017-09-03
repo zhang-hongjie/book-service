@@ -13,7 +13,7 @@ node() {
 
 
        stage('Test'){
-         sh 'mvn --version'
+         sh "'${mvnHome}/bin/mvn' --version"
        }
 
 
