@@ -15,6 +15,7 @@ node() {
         }
 
         stage('Build') {
+            sh 'echo $PATH'
             docker.image('maven:3.3.9').inside('-v $HOME/.m2:/root/.m2') {
                 sh 'mvn --version'
                 sh 'mvn -Dmaven.test.failure.ignore clean package'
